@@ -25,5 +25,8 @@ public class DrawPanel extends JPanel {
                     (int) (dim.height * 0.55 + Math.random() * dim.height - 80));
             tree.draw(gr);
         }
+        gr.setColor(Color.YELLOW);
+        gr.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 36));
+        gr.drawString("Солнышко мое вставай", 400, 150);
     }
 }
