@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class DrawPanel extends JPanel {
     private Sun sun = new Sun(200, 200, 50, 100, 80, Color.ORANGE);
@@ -18,15 +20,17 @@ public class DrawPanel extends JPanel {
         bg.draw(gr);
         sun.draw(gr);
         int treeCount = 30 + (int) (Math.random() * 60);
-        for (int i = 0; i < treeCount; i++) {
+        Wood[] woods = new Wood[treeCount];
+        for (int i = 0; i < woods.length; i++) {
             Wood tree = new Wood(70 + (int) (Math.random() * 155),
                     60 + (int) (Math.random() * 40),
                     30 + (int) (Math.random() * dim.width - 70),
                     (int) (dim.height * 0.55 + Math.random() * dim.height - 80));
-            tree.draw(gr);
+            woods[i] = tree;
         }
-        gr.setColor(Color.YELLOW);
-        gr.setFont(new Font("Microsoft Sans Serif", Font.PLAIN, 36));
-        gr.drawString("Солнышко мое вставай", 400, 150);
+
+        Arrays.sort(woods);
+        for (Wood wood : woods)
+            wood.draw(gr);
     }
 }

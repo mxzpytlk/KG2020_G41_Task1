@@ -11,8 +11,19 @@ public class Triangle implements Drawable {
         this.color = color;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     @Override
     public void draw(Graphics2D gr) {
+        gr.setColor(color);
+        int[] xCords = {a.x, b.x, c.x};
+        int[] yCords = {a.y, b.y, c.y};
+        gr.drawPolygon(xCords, yCords, 3);
+    }
+
+    public void fill(Graphics2D gr) {
         gr.setColor(color);
         int[] xCords = {a.x, b.x, c.x};
         int[] yCords = {a.y, b.y, c.y};
