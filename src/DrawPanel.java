@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class DrawPanel extends JPanel {
@@ -19,7 +18,23 @@ public class DrawPanel extends JPanel {
         Graphics2D gr = (Graphics2D) g;
         bg.draw(gr);
         sun.draw(gr);
+
+        int skyCount = (int) (Math.random() * 15);
+
+        for (int i = 0; i < skyCount; i++) {
+            Sky sky = new Sky((int) (Math.random() * dim.width),
+                    (int) (Math.random() * dim.height * 0.4),
+                    20 + (int) (Math.random() * 20));
+            sky.draw(gr);
+        }
+//        Sky sky = new Sky((int) (Math.random() * dim.width),
+//                (int) (Math.random() * dim.height * 0.4),
+//                30 + (int) (Math.random() * 10));
+//        sky.draw(gr);
+
+
         int treeCount = 30 + (int) (Math.random() * 60);
+
         Wood[] woods = new Wood[treeCount];
         for (int i = 0; i < woods.length; i++) {
             Wood tree = new Wood(70 + (int) (Math.random() * 155),
