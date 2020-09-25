@@ -47,5 +47,7 @@ public class DrawPanel extends JPanel {
         Arrays.sort(woods);
         for (Wood wood : woods)
             wood.draw(gr);
+
+        new Plate(40, (int) (dim.height * 0.6), "Костер не разжигать").draw(gr);
     }
 }
